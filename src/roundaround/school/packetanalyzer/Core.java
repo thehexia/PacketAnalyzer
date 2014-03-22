@@ -50,7 +50,11 @@ public class Core {
 
             pcap.loop(10, handler, queue);
 
-            System.out.println("This MAC address has processed " + queue.size() + " packets, and placed them in the queue.");
+            System.out.println("This MAC address has processed " + queue.size() + " packets, and placed them in the queue:");
+            
+            while (!queue.isEmpty()) {
+                System.out.println(queue.poll());
+            }
 
             pcap.close();
         }
